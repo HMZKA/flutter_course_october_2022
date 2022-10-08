@@ -10,7 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
           appBar: AppBar(
             title: Text('First Project'),
             titleSpacing: 50,
@@ -20,56 +21,46 @@ class MyApp extends StatelessWidget {
             ],
           ),
           body: Container(
-            width: double.infinity,
-            color: Colors.amber,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              // mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  color: Colors.black,
-                  child: Text(
-                    'First Text',
-                    style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.red,
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.grey,
-                  child: Text(
-                    'Second Text',
-                    style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.yellow,
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.black,
-                  child: Text(
-                    'Third Text',
-                    style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.pink,
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.red,
-                  child: Text(
-                    'Fourth Text',
-                    style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.blue,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          )),
-    );
+              color: Colors.amber,
+              height: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                      children: [
+                        Icon(Icons.ac_unit, size: 100),
+                        Icon(Icons.access_alarm, size: 100),
+                        Icon(Icons.access_alarm_rounded, size: 100),
+                      ],
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center
+
+                      // mainAxisSize: MainAxisSize.min,
+                      ),
+                  Row(
+                      children: [
+                        Icon(Icons.ac_unit, size: 100),
+                        Icon(Icons.access_alarm, size: 100),
+                        Icon(Icons.access_alarm_rounded, size: 100),
+                      ],
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center
+
+                      // mainAxisSize: MainAxisSize.min,
+                      ),
+                  Row(
+                      children: [
+                        Icon(Icons.ac_unit, size: 100),
+                        Icon(Icons.access_alarm, size: 100),
+                        Icon(Icons.access_alarm_rounded, size: 100),
+                      ],
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center
+
+                      // mainAxisSize: MainAxisSize.min,
+                      )
+                ],
+              )),
+        ));
   }
 }
