@@ -20,56 +20,50 @@ class MyApp extends StatelessWidget {
             ],
           ),
           body: Container(
+            width: double.infinity,
             color: Colors.amber,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisSize: MainAxisSize.min,
               children: [
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    color: Colors.black,
-                    child: Text(
-                      'First Text',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.red,
-                      ),
+                Container(
+                  color: Colors.black,
+                  child: Text(
+                    'First Text',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.red,
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    color: Colors.grey,
-                    child: Text(
-                      'Second Text',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.yellow,
-                      ),
+                Container(
+                  color: Colors.grey,
+                  child: Text(
+                    'Second Text',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.yellow,
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    color: Colors.black,
-                    child: Text(
-                      'Third Text',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.pink,
-                      ),
+                Container(
+                  color: Colors.black,
+                  child: Text(
+                    'Third Text',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.pink,
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    height: 130,
-                    color: Colors.red,
-                    child: Text(
-                      'Fourth Text',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.blue,
-                      ),
+                Container(
+                  color: Colors.red,
+                  child: Text(
+                    'Fourth Text',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.blue,
                     ),
                   ),
                 ),
