@@ -10,57 +10,36 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('First Project'),
-            titleSpacing: 50,
-            actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.phone)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.video_call))
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('PhotoGallery'),
+        ),
+        body: Center(
+          child: Stack(
+            alignment: AlignmentDirectional.bottomCenter,
+            children: [
+              Container(
+                clipBehavior: Clip.antiAlias,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(40)),
+                child: Image(
+                    width: 300,
+                    height: 300,
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        'https://www.gardendesign.com/pictures/images/675x529Max/site_3/helianthus-yellow-flower-pixabay_11863.jpg')),
+              ),
+              Text(
+                'Flower',
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                    backgroundColor: Colors.black),
+              )
             ],
           ),
-          body: Container(
-              color: Colors.amber,
-              height: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                      children: [
-                        Icon(Icons.ac_unit, size: 100),
-                        Icon(Icons.access_alarm, size: 100),
-                        Icon(Icons.access_alarm_rounded, size: 100),
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center
-
-                      // mainAxisSize: MainAxisSize.min,
-                      ),
-                  Row(
-                      children: [
-                        Icon(Icons.ac_unit, size: 100),
-                        Icon(Icons.access_alarm, size: 100),
-                        Icon(Icons.access_alarm_rounded, size: 100),
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center
-
-                      // mainAxisSize: MainAxisSize.min,
-                      ),
-                  Row(
-                      children: [
-                        Icon(Icons.ac_unit, size: 100),
-                        Icon(Icons.access_alarm, size: 100),
-                        Icon(Icons.access_alarm_rounded, size: 100),
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center
-
-                      // mainAxisSize: MainAxisSize.min,
-                      )
-                ],
-              )),
-        ));
+        ),
+      ),
+    );
   }
 }
