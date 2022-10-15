@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercourse/users.dart';
 
 class MessengerScreen extends StatelessWidget {
   const MessengerScreen({Key? key}) : super(key: key);
@@ -69,10 +70,13 @@ class MessengerScreen extends StatelessWidget {
               ),
               SizedBox(
                 height: 90,
-                child: ListView.builder(
+                child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => buildStoryItem(),
-                  itemCount: 15,
+                  separatorBuilder: (context, index) => SizedBox(
+                    width: 7,
+                  ),
+                  itemBuilder: (context, index) => buildStoryItem(index),
+                  itemCount: names.length,
                 ),
               ),
               SizedBox(
@@ -81,11 +85,11 @@ class MessengerScreen extends StatelessWidget {
               ListView.separated(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemBuilder: (context, index) => buildChatItem(),
+                  itemBuilder: (context, index) => buildChatItem(index),
                   separatorBuilder: (context, index) => Divider(
                         thickness: 3,
                       ),
-                  itemCount: 20)
+                  itemCount: names.length)
             ],
           ),
         ),
@@ -93,7 +97,7 @@ class MessengerScreen extends StatelessWidget {
     );
   }
 
-  Widget buildChatItem() => ListTile(
+  Widget buildChatItem(index) => ListTile(
         trailing: Text('2:00 PM'),
         subtitle: Text(
           'Hello my name is Ahmad ya 3omri',
@@ -104,7 +108,7 @@ class MessengerScreen extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.only(bottom: 6.0),
           child: Text(
-            'Ahmad Ahmad Ahmad Ahmad Ahmad Ahmad Ahmad Ahmad ',
+            '${names[index]} ',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(fontWeight: FontWeight.w600),
@@ -116,7 +120,7 @@ class MessengerScreen extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 27.5,
-              backgroundImage: AssetImage('images/cat.jfif'),
+              backgroundImage: AssetImage('${images[index]}'),
             ),
             CircleAvatar(
               backgroundColor: Colors.white,
@@ -129,7 +133,7 @@ class MessengerScreen extends StatelessWidget {
           ],
         ),
       );
-  Widget buildStoryItem() => SizedBox(
+  Widget buildStoryItem(index) => SizedBox(
         width: 60,
         child: Expanded(
           child: Column(
@@ -140,7 +144,7 @@ class MessengerScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 27.5,
-                    backgroundImage: AssetImage('images/cat.jfif'),
+                    backgroundImage: AssetImage('${images[index]}'),
                   ),
                   CircleAvatar(
                     backgroundColor: Colors.white,
@@ -153,7 +157,7 @@ class MessengerScreen extends StatelessWidget {
                 ],
               ),
               Text(
-                'Ahmad Ahmad Ahmad AhmadAhmad AhmadAhmad AhmadAhmad Ahmad',
+                '${names[index]}',
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               )
