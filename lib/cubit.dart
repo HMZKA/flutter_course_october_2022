@@ -5,15 +5,9 @@ import 'package:fluttercourse/states.dart';
 class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitState());
   AppCubit get(context) => BlocProvider.of(context);
-  int count = 0;
-
-  countMinus() {
-    count--;
-    emit(AppCountMinusState());
-  }
-
-  countPlus() {
-    count++;
-    emit(AppCountPlusState());
+  bool isDark = false;
+  changeTheme() {
+    isDark = !isDark;
+    emit(AppChangeThemeModeState());
   }
 }
