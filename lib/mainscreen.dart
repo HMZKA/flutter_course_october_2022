@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coursee/cubit.dart';
+import 'package:flutter_coursee/searchscreen.dart';
 import 'package:flutter_coursee/states.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,7 +17,16 @@ class HomeScreen extends StatelessWidget {
             backgroundColor: Colors.grey[300],
             appBar: AppBar(
               title: Text('NewsApp'),
-              actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SearchScreen(),
+                      ));
+                      cubit.searchModel = null;
+                    },
+                    icon: Icon(Icons.search))
+              ],
             ),
             bottomNavigationBar: BottomNavigationBar(
                 currentIndex: cubit.index,

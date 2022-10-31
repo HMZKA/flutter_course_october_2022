@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coursee/cubit.dart';
 import 'package:flutter_coursee/states.dart';
 
+import 'componants.dart';
+
 class BusinessScreen extends StatelessWidget {
   const BusinessScreen({super.key});
 
@@ -15,42 +17,22 @@ class BusinessScreen extends StatelessWidget {
         return BuildCondition(
           condition: newsmodel != null,
           // state is AppGetDataSuccessState,
-          builder: (context) => ListView.separated(
-              itemBuilder: (context, index) =>
-                  buildNewsItem(newsmodel.articles[index]),
-              separatorBuilder: (context, index) => SizedBox(
-                    height: 7,
-                  ),
-              itemCount: newsmodel!.articles.length),
+          builder: (context) => Padding(
+            padding: const EdgeInsets.all(4.5),
+            child: ListView.separated(
+                itemBuilder: (context, index) =>
+                    buildNewsItem(newsmodel.articles[index]),
+                separatorBuilder: (context, index) => SizedBox(
+                      height: 7,
+                    ),
+                itemCount: newsmodel!.articles.length),
+          ),
           fallback: (context) => Center(
             child: CircularProgressIndicator(),
           ),
         );
       },
       listener: (context, state) {},
-    );
-  }
-
-  Widget buildNewsItem(model) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-      child: Column(
-        children: [
-          Image.network(
-            '${model.urlToImage}',
-            errorBuilder: (context, error, stackTrace) =>
-                Image.asset('images/R.jpg'),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12, bottom: 12),
-            child: Text(
-              '${model.title}',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-            ),
-          )
-        ],
-      ),
     );
   }
 }
