@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_coursee/screens/webview_screen.dart';
 
-Widget buildNewsItem(model) {
+Widget buildNewsItem(model, context) {
   return InkWell(
-    onTap: () {},
+    onTap: () {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => WebViewScreen(model.url),
+      ));
+    },
     child: Card(
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
@@ -17,7 +22,7 @@ Widget buildNewsItem(model) {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Text(
               '${model.title}',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           )
         ],

@@ -1,13 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_coursee/business_screen.dart';
-import 'package:flutter_coursee/dio.dart';
-import 'package:flutter_coursee/businessmodel.dart';
-import 'package:flutter_coursee/other_screen.dart';
-import 'package:flutter_coursee/searchmodel.dart';
-import 'package:flutter_coursee/sport_screen.dart';
-import 'package:flutter_coursee/sportmodel.dart';
-import 'package:flutter_coursee/states.dart';
+import 'package:flutter_coursee/bloc&states/states.dart';
+
+import 'package:flutter_coursee/cache/cache.dart';
+import 'package:flutter_coursee/dio%20service/dio.dart';
+
+import 'package:flutter_coursee/screens/business_screen.dart';
+import 'package:flutter_coursee/screens/other_screen.dart';
+import 'package:flutter_coursee/screens/sport_screen.dart';
+
+import '../models/businessmodel.dart';
+import '../models/searchmodel.dart';
+import '../models/sportmodel.dart';
 
 class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitState());
@@ -18,6 +22,13 @@ class AppCubit extends Cubit<AppStates> {
   changeNavBar(currentIndex) {
     index = currentIndex;
     emit(AppChangeNavBarState());
+  }
+
+  bool isDark = CacheHelper.getData('isDark') ?? false;
+  changeTheme() {
+    isDark = !isDark;
+    CacheHelper.setData('isDark', isDark);
+    emit(AppChangeThemeState());
   }
 
   NewsModel? newsModel;

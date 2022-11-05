@@ -1,8 +1,11 @@
 import 'package:buildcondition/buildcondition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_coursee/cubit.dart';
-import 'package:flutter_coursee/states.dart';
+
+import 'package:flutter_coursee/screens/webview_screen.dart';
+
+import '../bloc&states/cubit.dart';
+import '../bloc&states/states.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -42,7 +45,7 @@ class SearchScreen extends StatelessWidget {
                       child: ListView.separated(
                           shrinkWrap: true,
                           itemBuilder: (context, index) =>
-                              buildSearch(searchmodel.articles[index]),
+                              buildSearch(searchmodel.articles[index], context),
                           separatorBuilder: (context, index) => Divider(),
                           itemCount: searchmodel!.articles.length),
                     ),
@@ -55,9 +58,13 @@ class SearchScreen extends StatelessWidget {
     );
   }
 
-  Widget buildSearch(model) {
+  Widget buildSearch(model, context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => WebViewScreen(model.url),
+        ));
+      },
       child: Row(
         children: [
           Image.network(

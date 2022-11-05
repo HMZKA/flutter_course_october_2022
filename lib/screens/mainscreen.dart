@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_coursee/cubit.dart';
-import 'package:flutter_coursee/searchscreen.dart';
-import 'package:flutter_coursee/states.dart';
+
+import 'package:flutter_coursee/screens/searchscreen.dart';
+
+import '../bloc&states/cubit.dart';
+import '../bloc&states/states.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +16,6 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) {
           var cubit = AppCubit().get(context);
           return Scaffold(
-            backgroundColor: Colors.grey[300],
             appBar: AppBar(
               title: Text('NewsApp'),
               actions: [
@@ -25,7 +26,12 @@ class HomeScreen extends StatelessWidget {
                       ));
                       cubit.searchModel = null;
                     },
-                    icon: Icon(Icons.search))
+                    icon: Icon(Icons.search)),
+                IconButton(
+                    onPressed: () {
+                      cubit.changeTheme();
+                    },
+                    icon: Icon(Icons.brightness_4_outlined))
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(

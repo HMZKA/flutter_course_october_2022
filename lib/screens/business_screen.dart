@@ -1,9 +1,9 @@
 import 'package:buildcondition/buildcondition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_coursee/cubit.dart';
-import 'package:flutter_coursee/states.dart';
 
+import '../bloc&states/cubit.dart';
+import '../bloc&states/states.dart';
 import 'componants.dart';
 
 class BusinessScreen extends StatelessWidget {
@@ -21,7 +21,7 @@ class BusinessScreen extends StatelessWidget {
             padding: const EdgeInsets.all(4.5),
             child: ListView.separated(
                 itemBuilder: (context, index) =>
-                    buildNewsItem(newsmodel.articles[index]),
+                    buildNewsItem(newsmodel.articles[index], context),
                 separatorBuilder: (context, index) => SizedBox(
                       height: 7,
                     ),
