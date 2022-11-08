@@ -42,6 +42,7 @@ dependencies:
   buildcondition: ^0.0.4
   webviewx: ^0.2.1
   shared_preferences: ^2.0.15
+  fluttertoast: ^8.1.1
 
 dev_dependencies:
   flutter_test:
