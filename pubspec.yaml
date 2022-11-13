@@ -43,6 +43,7 @@ dependencies:
   webviewx: ^0.2.1
   shared_preferences: ^2.0.15
   fluttertoast: ^8.1.1
+  carousel_slider: ^4.1.1
 
 dev_dependencies:
   flutter_test:

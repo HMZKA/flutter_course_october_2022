@@ -2,7 +2,9 @@ import 'package:buildcondition/buildcondition.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_coursee/cache_helper.dart';
 import 'package:flutter_coursee/cubit.dart';
+import 'package:flutter_coursee/home_screen.dart';
 import 'package:flutter_coursee/states.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -17,6 +19,7 @@ class LoginScreen extends StatelessWidget {
           var formkey = GlobalKey<FormState>();
           var emailcontroller = TextEditingController();
           var passwordcontroller = TextEditingController();
+          var cubit = AppCubit().get(context);
           return Scaffold(
               appBar: AppBar(
                 title: Text('Login'),
@@ -83,7 +86,8 @@ class LoginScreen extends StatelessWidget {
                               if (formkey.currentState!.validate()) {
                                 AppCubit().get(context).login(
                                     emailcontroller.text,
-                                    passwordcontroller.text);
+                                    passwordcontroller.text,
+                                    context);
                               }
                             },
                             child: Container(
