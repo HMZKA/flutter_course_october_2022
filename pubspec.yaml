@@ -41,6 +41,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   buildcondition: ^0.0.4
   webviewx: ^0.2.1
+  equatable: ^2.0.5
   shared_preferences: ^2.0.15
   fluttertoast: ^8.1.1
   carousel_slider: ^4.1.1
